@@ -1,0 +1,397 @@
+/* ========================
+   FUENTE Y RESETEO GLOBAL
+======================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ========================
+   VARIABLES Y COLORES
+======================== */
+:root {
+  --bg-image: url('images/fondo-oc.png');
+  --bg-overlay: rgba(255, 255, 255, 0.7);
+  --text-color: #111;
+  --card-bg: rgba(255, 255, 255, 0.2);
+  --accent-green: #00ff99;
+  --accent-cyan: #00faff;
+  --accent-yellow: #fffa00;
+  --accent-purple: #c084fc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-image: url('images/fondo-cc.png');
+    --bg-overlay: rgba(0, 0, 0, 0.7);
+    --text-color: #f0f0f0;
+    --card-bg: rgba(0, 0, 0, 0.6); /* mejor contraste */
+  }
+}
+
+/* ========================
+   FONDO GLOBAL
+======================== */
+body {
+  background-color: var(--bg-overlay);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  color: var(--text-color);
+}
+
+/* ========================
+   ENCABEZADO Y NAVEGACIÓN
+======================== */
+header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: var(--accent-cyan);
+  text-shadow: 0 0 10px var(--accent-cyan);
+}
+
+nav a {
+  color: var(--accent-purple);
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--accent-yellow);
+}
+
+nav a:focus {
+  outline: 2px solid var(--accent-yellow);
+  outline-offset: 4px;
+}
+
+/* ========================
+   SECCIONES PRINCIPALES
+======================== */
+main section {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 0 0 20px var(--accent-purple);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, background-color 0.3s;
+}
+
+main section:hover {
+  transform: translateY(-5px);
+}
+
+main section h2 {
+  font-size: 2rem;
+  color: var(--accent-green);
+  margin-bottom: 20px;
+  text-shadow: 0 0 8px var(--accent-green);
+}
+
+main section p, main section li {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+/* ========================
+   LISTAS PERSONALIZADAS
+======================== */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li::before {
+  content: "⚡";
+  margin-right: 8px;
+  color: var(--accent-yellow);
+}
+
+/* ========================
+   GALERÍA
+======================== */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.galeria-grid img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 0 15px var(--accent-cyan);
+  transition: transform 0.3s ease;
+}
+
+.galeria-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* ========================
+   BOTONES GENERALES
+======================== */
+button, .btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent-green);
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px var(--accent-green);
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+button:hover, .btn:hover {
+  background: var(--accent-yellow);
+  box-shadow: 0 0 15px var(--accent-yellow);
+  transform: scale(1.05);
+}
+
+button:focus, .btn:focus {
+  outline: 2px solid var(--accent-yellow);
+  outline-offset: 4px;
+}
+
+/* ========================
+   BOTONES SOCIALES
+======================== */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-links .btn {
+  background: var(--accent-purple);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--accent-purple);
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+.social-links .btn:hover {
+  background: var(--accent-yellow);
+  box-shadow: 0 0 15px var(--accent-yellow);
+  transform: scale(1.05);
+}
+
+/* ========================
+   BOTONES PIXEL VERTICAL
+======================== */
+.btn-pixel-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--text-color);
+  padding: 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: transform 0.3s ease, text-shadow 0.3s;
+  font-weight: bold;
+  width: 100px;
+}
+
+.btn-pixel-vertical:hover {
+  transform: scale(1.1);
+  text-shadow: 0 0 5px var(--accent-yellow);
+}
+
+.btn-pixel-vertical img {
+  width: 40px;
+  height: 40px;
+  image-rendering: pixelated;
+  transition: transform 0.3s ease;
+}
+
+.btn-pixel-vertical:hover img {
+  transform: scale(1.1);
+}
+
+.btn-pixel-vertical span {
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--text-color);
+}
+
+/* ========================
+   INTRO / PANTALLA CARGA
+======================== */
+.intro {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 1s ease;
+}
+
+.intro img {
+  max-width: 250px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* ========================
+   SCROLL TOP
+======================== */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--accent-cyan);
+  color: #000;
+  border: none;
+  padding: 12px 16px;
+  font-size: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 0 10px var(--accent-cyan);
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+  background: var(--accent-yellow);
+}
+
+/* ========================
+   STAFF
+======================== */
+.staff-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card-staff {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  width: 250px;
+  box-shadow: 0 4px 12px #00ffd580;
+  transition: transform 0.3s;
+}
+
+.card-staff img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.card-staff:hover {
+  transform: scale(1.05);
+}
+
+/* ========================
+   MINI JUEGO
+======================== */
+#minijuego {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.cofres img {
+  width: 100px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.cofres img:hover {
+  transform: scale(1.1);
+}
+
+/* ========================
+   MÚSICA
+======================== */
+#musica {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  margin: 20px;
+}
+
+.reproductor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#volumenControl {
+  width: 150px;
+}
+
+/* ========================
+   ANIMACIONES EN SCROLL
+======================== */
+.animado {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.animado.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================
+   RESPONSIVE
+======================== */
+@media (max-width: 500px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .card-staff {
+    width: 100%;
+  }
+
+  .btn-pixel-vertical {
+    width: 80px;
+    font-size: 0.8rem;
+  }
+
+  .galeria-grid {
+    grid-template-columns: 1fr;
+  }
+}

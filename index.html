@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Minecraft SEP - Inicio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<script>
+  window.addEventListener("load", () => {
+    const intro = document.getElementById("intro");
+    intro.classList.add("oculto");
+    setTimeout(() => intro.style.display = "none", 1000);
+  });
+</script>
+
+<body>
+  <select id="languageSelector">
+    <option value="es">Español</option>
+    <option value="en">English</option>
+    <option value="pt">Português</option>
+  </select>
+
+  <div id="intro" class="intro">
+    <img src="images/logo.webp" alt="Logo del servidor">
+    Cargando Web
+  </div>
+
+  <button id="scrollTopBtn" title="Volver arriba">↑</button>
+  <div class="fondo"></div>
+
+  <header>
+    <h1>Servidor <span class="resaltado">Minecraft SEP</span></h1>
+    <nav>
+      <a href="#noticias">Noticias</a>
+      <a href="https://discord.gg/YmwsAAC6pu" target="_blank" class="discord-btn">
+        <i class="fab fa-discord"></i> Unirse al Discord
+      </a>
+      <a href="#sugerencias">Sugerencias</a>
+      <a href="changelog.html">Changelog</a>
+      // pages/index.js
+import { useSession, signIn, signOut } from "next-auth/react";
+
+export default function Home() {
+  const { data: session } = useSession();
+
+  return (
+    <main style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>Bienvenido a Minecraft SEP</h1>
+
+      {session ? (
+        <>
+          <p>Has iniciado sesión como <strong>{session.user.name}</strong></p>
+          <img src={session.user.image} alt="Avatar" style={{ borderRadius: "50%", width: "80px" }} />
+          <br />
+          <button onClick={() => signOut()}>Cerrar sesión</button>
+        </>
+      ) : (
+        <>
+          <p>No has iniciado sesión</p>
+          <button onClick={() => signIn("discord")}>Iniciar sesión con Discord</button>
+        </>
+      )}
+    </main>
+  );
+}
+
+      <div id="visit-counter" class="contador">
+  <p>👀 Visitas a la web: <span id="visitas">0</span></p>
+<audio id="bgMusic" src="musica/tema.mp3" preload="auto" loop></audio>
+
+<script>
+  const audio = document.getElementById("bgMusic");
+  const playPauseBtn = document.getElementById("playPauseBtn");
+  const volumenControl = document.getElementById("volumenControl");
+  const cancionActual = document.getElementById("cancionActual");
+
+  playPauseBtn.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+      playPauseBtn.textContent = "⏸️";
+    } else {
+      audio.pause();
+      playPauseBtn.textContent = "▶️";
+    }
+  });
+
+  volumenControl.addEventListener("input", () => {
+    audio.volume = volumenControl.value;
+  });
+
+  // Mostrar nombre de canción (opcional si planeas tener varias)
+  cancionActual.textContent = "Reproduciendo: tema.mp3";
+</script>
+
+
+
+    </nav>
+  </header>
+
+  <main>
+    <section id="sobre">
+      <h2 id="sobreTitulo">🌍 Sobre el servidor</h2>
+      <p id="sobreTexto">
+        Minecraft SEP es un servidor de supervivencia con una comunidad activa, eventos semanales
+        y sistemas únicos de economía y protección. Nuestro objetivo es brindar una experiencia divertida, segura y justa para todos los jugadores.
+      </p>
+
+      <h3 id="staffTitulo">👥 Staff principal</h3>
+      <ul class="staff">
+        <li><strong>Yalmil</strong> – Owner & Fundador</li>
+        <li><strong>Eron2o23</strong> – Owner & Fundador</li>
+        <li><strong>Omicron</strong> – Manager & Co-Owner</li>
+      </ul>
+
+      <h3 id="reglasTitulo">📜 Reglas principales</h3>
+      <ul class="reglas">
+        <li id="regla1">❌ No hacer griefing.</li>
+        <li id="regla2">❌ No usar hacks o mods injustos.</li>
+        <li id="regla3">✅ Respeto entre jugadores y staff.</li>
+      </ul>
+    </section>
+
+    <section id="noticias">
+      <h2 id="noticiasTitulo">📰 Noticias del servidor</h2>
+      <div class="noticia">
+        <h3>🎉 Nuevo evento de construcción</h3>
+        <p id="noticiasTexto">¡Participa y gana premios épicos antes del 30 de mayo!</p>
+      </div>
+    </section>
+
+    <section class="roadmap">
+      <h2 id="metasTitulo">Metas para el 2025</h2>
+      <div class="Metas para el 2025">
+        <div class="roadmap-column completado">
+          <h3 id="completadoTitulo">✅ Completado</h3>
+          <ul>
+            <li>Bot 24/7</li>
+            <li>Expandirnos a nuevos juegos</li>
+            <li>Web inicial online</li>
+          </ul>
+        </div>
+        <div class="roadmap-column progreso">
+          <h3 id="progresoTitulo">🚧 En progreso</h3>
+          <ul>
+            <li>Servidor para la comunidad</li>
+            <li>Pack de texturas personalizado</li>
+            <li>Mejora en el sistema de economia</li>
+            <li>Traduccion de la web</li>
+            <li>Sistema de musica</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="sugerencias">
+      <h2 id="sugerenciasTitulo">💡 Buzón de Sugerencias</h2>
+      <p id="sugerenciasTexto">¡Envíanos tus ideas para mejorar el servidor!</p>
+      <div class="formulario-google">
+        <a href="https://forms.gle/Jdz6nVkMpK2dwfio6" target="_blank" class="btn-pixel-vertical">
+          <img src="images/bz.jpg" alt="Disc">
+          <span>Enviar Sugerencia</span>
+        </a>
+      </div>
+    </section>
+    <section id="staff-detallado">
+  <h2>👥 Nuestro Staff</h2>
+  <div class="staff-cards">
+    <div class="card-staff">
+      <img src="images/yalmil.gif" alt="Yalmil">
+      <h3>Yalmil</h3>
+      <p>Owner & Fundador, se encarga de la programacion</p>
+    </div>
+    <div class="card-staff">
+      <img src="images/eron.webp" alt="Eron2o23">
+      <h3>Eron2o23</h3>
+      <p>Creador & Fundador del servidor, fue el primer usuario en el servidor</p>
+    </div>
+    <div class="card-staff">
+      <img src="images/omicron.webp" alt="Omicron">
+      <h3>Omicron</h3>
+      <p>Manager general, no se como consiguio ese rango, pero esta bien</p>
+    </div>
+       <div class="card-staff">
+      <img src="images/ben10.webp" alt="Ben10">
+      <h3>Ben10</h3>
+      <p>Moderador, ha demostrado esfuerzo para el servidor a pesar de las complicaciones</p>
+    </div>
+        <div class="card-staff">
+      <img src="images/XIM.png" alt="XM">
+      <h3>X...</h3>
+      <p>Cuenta la leyenda de que esta persona es todo un misterio y que Yalmil la conoce en la vida real, ademas se dice que no tiene discord pero si tuviera Yalmil le regalaria el servidor, y aqui dejo de escribir porque si no Yalmil me silencia</p>
+    </div>
+  </div>
+</section>
+
+
+    <section id="galeria">
+      <h2>🎇 Mejores Momentos</h2>
+      <div class="galeria-grid">
+        <img src="images/recuerdo1exe.webp" alt="El mejor shipeo...">
+        <img src="images/recuerdo2fg.webp" alt="Fotito grupal">
+        <img src="images/recuerdo3neubtp.webp" alt="Era un bug suave">
+      </div>
+    </section>
+    <section id="minijuego">
+  <h2>💎 Encuentra el Diamante</h2>
+  <p>Haz clic en uno de los cofres. ¡Solo uno tiene el diamante!</p>
+  <div class="cofres">
+    <img src="images/cofre.jpg" onclick="verificarDiamante(1)">
+    <img src="images/cofre.jpg" onclick="verificarDiamante(2)">
+    <img src="images/cofre.jpg" onclick="verificarDiamante(3)">
+  </div>
+  <p id="resultado-juego"></p>
+</section>
+
+    <section id="redes">
+      <h2 id="redesTitulo" style="text-align: center;">Síguenos en redes</h2>
+      <p id="redesTexto" style="text-align: center;">Conéctate con la comunidad en nuestras plataformas:</p>
+      <div class="social-links">
+        <a href="https://discord.gg/YmwsAAC6Pu" target="_blank" class="btn-pixel-vertical">
+          <img src="images/discord.webp" alt="Discord">
+          <span>Discord</span>
+        </a>
+        <a href="https://instagram.com/sep.comu" target="_blank" class="btn-pixel-vertical">
+          <img src="images/instagram.webp" alt="Instagram">
+          <span>Instagram</span>
+        </a>
+        <a href="https://chat.whatsapp.com/Gc8nffmwaw6JIFjfhCRiG1" target="_blank" class="btn-pixel-vertical">
+          <img src="images/what.webp" alt="Whatsapp">
+          <span>Whatsapp</span>
+        </a>
+      </div>
+    </section>
+  </main>
+  <section id="newsletter">
+  <h2>📰 ¡Recibe nuestras novedades!</h2>
+  <form action="https://formsubmit.co/tu-correo@gmail.com" method="POST">
+    <input type="email" name="email" placeholder="Tu correo electrónico" required>
+    <button type="submit">Suscribirme</button>
+  </form>
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 Minecraft SEP. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
